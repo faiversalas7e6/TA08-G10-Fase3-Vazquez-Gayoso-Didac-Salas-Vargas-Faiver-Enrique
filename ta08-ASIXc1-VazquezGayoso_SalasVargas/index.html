@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TA08 · Calculadora d'Estalvi Energètic · ITB G10</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="header-left">
+    <div class="header-badge">ITB·G10</div>
+    <div class="header-title">
+      <h1>CALCULADORA D'ESTALVI ENERGÈTIC</h1>
+      <p>CFGS ASIX · MÒDUL 1708 SOSTENIBILITAT · TA08 · CURS 25/26</p>
+    </div>
+  </div>
+  <div class="header-right">
+    VAZQUEZ GAYOSO, DIDAC<br/>
+    SALAS VARGAS, FAIVER ENRIQUE<br/>
+    ASIXc1 · G10
+  </div>
+</header>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <button class="active" data-sec="sec-dash">01 / DADES REALS</button>
+  <button data-sec="sec-calc">02 / CALCULADORA</button>
+  <button data-sec="sec-pla">03 / PLA −30%</button>
+  <button data-sec="sec-tips">04 / COM REDUIR</button>
+</nav>
+
+<main>
+
+<!-- ══════════ 01 · DASHBOARD DADES REALS ══════════ -->
+<section id="sec-dash" class="section active">
+
+  <div class="sec-head">
+    <h2>DIAGNOSI <em>ASG</em><br/>ITB 2024–25</h2>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem">
+      <button class="btn btn-export" id="btn-pdf">⬇ EXPORTAR PDF</button>
+      <span class="sec-tag">Font: dataclean.json · ITB Leaks · Fase 1</span>
+    </div>
+  </div>
+
+  <!-- 4 Indicadors principals del JSON -->
+  <div class="stat-row">
+
+    <!-- Indicator-01: Solar PV -->
+    <div class="stat-block">
+      <div class="s-label">☀️ ENERGIA SOLAR — SDG 7</div>
+      <div class="s-value"><span id="d-peak">—</span></div>
+      <div class="s-unit">kW pic · Inversor SUN2000-36KTL-M3</div>
+      <div class="s-note">
+        Capacitat instal·lada: 30.94 kWp<br/>
+        Autoconsum: <strong><span id="d-selfcons">—</span>%</strong> (1 gen 2025)<br/>
+        CO₂ evitat estimat: <strong><span id="d-co2year">—</span> t/any</strong>
+      </div>
+      <span class="priority critical">CRÍTIC</span>
+    </div>
+
+    <!-- Indicator-02: Fuita d'agua -->
+    <div class="stat-block">
+      <div class="s-label">💧 FUITA D'AIGUA NOCTURNA — SDG 6</div>
+      <div class="s-value"><span id="d-leak">—</span></div>
+      <div class="s-unit">L/h · 01:00–05:00 h (consum anòmal)</div>
+      <div class="s-note">
+        Consum nocturn: 150–190 L/h · Rang: 40 L/h<br/>
+        Pèrdua diària: <strong><span id="d-leakday">—</span> m³/dia</strong><br/>
+        Pèrdua anual: <strong><span id="d-leakyear">—</span> m³ → <span id="d-leakcost">—</span> €</strong>
+      </div>
+      <span class="priority high">ALTA PRIORITAT</span>
+    </div>
+
+    <!-- Indicator-03: Infraestructura digital -->
+    <div class="stat-block">
+      <div class="s-label">🌐 INFRAESTRUCTURA DIGITAL — Governança</div>
+      <div class="s-value"><span id="d-digital">—</span></div>
+      <div class="s-unit">€/mes · O2 + DIGI fibra i mòbil</div>
+      <div class="s-note">
+        Proveïdors: DIGI (inv. DGFCJ2400192425) + O2<br/>
+        Neteja: ISO 9001 + ISO 14001 certificada<br/>
+        Cost anual estimat: <strong>6.542,64 €</strong>
+      </div>
+      <span class="priority medium">MITJANA</span>
+    </div>
+
+    <!-- Indicator-04: Circularitat -->
+    <div class="stat-block">
+      <div class="s-label">♻️ ECONOMIA CIRCULAR — SDG 12</div>
+      <div class="s-value"><span id="d-refills">—</span></div>
+      <div class="s-unit">recàrregues retoladors comprades</div>
+      <div class="s-note">
+        Substitució de retoladors nous per recàrregues<br/>
+        Plàstic evitat: <strong>~1.680 g</strong><br/>
+        Estalvi econòmic: <strong>~252 €</strong>
+      </div>
+      <span class="priority medium">CIRCULAR</span>
+    </div>
+  </div>
+
+  <!-- Gràfics -->
+  <div class="g2">
+    <div class="panel">
+      <div class="panel-head">
+        ☀️ PRODUCCIÓ SOLAR vs CONSUM ESTIMAT MENSUAL
+        <span class="ph-tag">kWh · estimació anual basada en registre 01/01/2025</span>
+      </div>
+      <div class="panel-body">
+        <div class="chart-wrap"><canvas id="chart-solar"></canvas></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        📱 ÚS DEL MÒBIL A L'AULA — ASIXc1A
+        <span class="ph-tag">% alumnes amb mòbil a la taula · nov 2024 – gen 2025</span>
+      </div>
+      <div class="panel-body">
+        <div class="chart-wrap"><canvas id="chart-phone"></canvas></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:1rem;border:1px solid #ccc">
+          <div style="padding:0.7rem;text-align:center;border-right:1px solid #ccc">
+            <div style="font-family:var(--ff-mono);font-size:0.6rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:1px">ASIXc1A · Mitjana</div>
+            <div style="font-family:var(--ff-display);font-size:1.8rem" id="avg-A">—</div>
+          </div>
+          <div style="padding:0.7rem;text-align:center;border-right:1px solid #ccc">
+            <div style="font-family:var(--ff-mono);font-size:0.6rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:1px">ASIXc1B · Mitjana</div>
+            <div style="font-family:var(--ff-display);font-size:1.8rem" id="avg-B">—</div>
+          </div>
+          <div style="padding:0.7rem;text-align:center">
+            <div style="font-family:var(--ff-mono);font-size:0.6rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:1px">ASIXc1C · Mitjana</div>
+            <div style="font-family:var(--ff-display);font-size:1.8rem" id="avg-C">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ODS i Marc Europeu -->
+  <div class="panel">
+    <div class="panel-head">🌍 RELACIÓ ODS i MARC EUROPEU</div>
+    <div class="panel-body">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+        <div style="border-left:4px solid var(--yellow);padding-left:1rem">
+          <div style="font-family:var(--ff-mono);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint)">SDG 7 · Energia Neta</div>
+          <p style="font-size:0.85rem;margin-top:0.3rem;line-height:1.5;color:var(--ink-light)">Planta solar 9.22 kW pic amb 93.8% d'autoconsum. Reducció directa d'emissions CO₂. Alineació amb el Green Deal europeu (neutralitat 2050).</p>
+        </div>
+        <div style="border-left:4px solid var(--blue);padding-left:1rem">
+          <div style="font-family:var(--ff-mono);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint)">SDG 6 · Aigua Neta</div>
+          <p style="font-size:0.85rem;margin-top:0.3rem;line-height:1.5;color:var(--ink-light)">Fuita nocturna 150–190 L/h detectada. Prioritat alta. Eliminació de la fuita estalviarà ~248 m³/any (~707 €/any).</p>
+        </div>
+        <div style="border-left:4px solid var(--teal);padding-left:1rem">
+          <div style="font-family:var(--ff-mono);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint)">SDG 12 · Consum Responsable</div>
+          <p style="font-size:0.85rem;margin-top:0.3rem;line-height:1.5;color:var(--ink-light)">140 recàrregues vs retoladors nous. Gestió RAEE conforme Directiva 2012/19/UE i RD 110/2015. Principis economia circular.</p>
+        </div>
+        <div style="border-left:4px solid var(--red);padding-left:1rem">
+          <div style="font-family:var(--ff-mono);font-size:0.68km;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint)">SDG 4 · Educació de Qualitat</div>
+          <p style="font-size:0.85rem;margin-top:0.3rem;line-height:1.5;color:var(--ink-light)">Política ús mòbil 2024–25. Indicadors superiors al llindar del 20% en ASIXc1A i C. Proposta: protocol específic per aules TIC.</p>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;padding:0.9rem;background:var(--paper-dark);border:1px solid #ccc;font-size:0.82rem;line-height:1.6;color:var(--ink-light)">
+        <strong>Marc CSRD (UE):</strong> Aquesta diagnosi s'alinea amb la Corporate Sustainability Reporting Directive — posiciona l'ITB com a institució preparada per a la transparència ASG. Empresa de neteja certifica ISO 9001 + ISO 14001.
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════ 02 · CALCULADORA ══════════ -->
+<section id="sec-calc" class="section">
+
+  <div class="sec-head">
+    <h2>CALCULA<br/><em>L'ESTALVI</em></h2>
+    <span class="sec-tag">8 càlculs basats en dades reals del dataclean.json</span>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      ⚙️ PARÀMETRES
+      <span class="ph-tag">Modifica i prem CALCULAR</span>
+    </div>
+    <div class="panel-body">
+      <div class="calc-grid">
+        <div class="field">
+          <label>Any de projecció</label>
+          <select id="sel-any"></select>
+        </div>
+        <div class="field">
+          <label>Període</label>
+          <select id="sel-periode">
+            <option value="any">Any complet (12 mesos)</option>
+            <option value="curs">Curs escolar (Set–Jun)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>% millora fuita (0–100)</label>
+          <input type="number" id="inp-millora" min="0" max="100" value="0" placeholder="0" />
+        </div>
+        <div class="field">
+          <label>% expansió circularitat</label>
+          <input type="number" id="inp-expansio" min="0" max="100" value="0" placeholder="0" />
+        </div>
+        <div class="field" style="align-self:flex-end">
+          <button class="btn btn-run" id="btn-calc">▶ CALCULAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Etiqueta del període calculat -->
+  <div style="font-family:var(--ff-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-faint);margin-bottom:0.5rem">
+    Resultats per: <strong id="calc-label" style="color:var(--ink)">—</strong>
+  </div>
+
+  <!-- 8 tiles de resultats: C1–C8 -->
+  <div class="result-tiles">
+    <!-- C1/C2: Solar -->
+    <div class="rtile solar">
+      <div class="rt-label">C1/C2 · ☀️ PRODUCCIÓ SOLAR</div>
+      <div class="rt-value" id="r-solar-prod">—</div>
+      <div class="rt-sub">Autocobertura: <strong id="r-solar-cob">—</strong></div>
+      <div class="rt-sub">CO₂ evitat: <strong id="r-solar-co2">—</strong></div>
+    </div>
+
+    <!-- C3/C4: Fuita -->
+    <div class="rtile water">
+      <div class="rt-label">C3/C4 · 💧 PÈRDUA PER FUITA</div>
+      <div class="rt-value" id="r-fuita-l">—</div>
+      <div class="rt-sub">Equivalent: <strong id="r-fuita-m3">—</strong></div>
+      <div class="rt-sub">Cost aigua: <strong id="r-fuita-cost">—</strong></div>
+    </div>
+
+    <!-- C5/C6: Digital -->
+    <div class="rtile digital">
+      <div class="rt-label">C5/C6 · 🌐 INFRAESTRUCTURA DIGITAL</div>
+      <div class="rt-value" id="r-dig-cost">—</div>
+      <div class="rt-sub">Cost mensual: <strong id="r-dig-mes">—</strong></div>
+      <div class="rt-sub" style="margin-top:0.5rem;font-size:0.68rem;color:var(--ink-faint)">O2 + DIGI · fibra + mòbil</div>
+    </div>
+
+    <!-- C7/C8: Circularitat -->
+    <div class="rtile circular">
+      <div class="rt-label">C7/C8 · ♻️ RECÀRREGUES RETOLADORS</div>
+      <div class="rt-value" id="r-ref-u">—</div>
+      <div class="rt-sub">Estalvi econòmic: <strong id="r-ref-eur">—</strong></div>
+      <div class="rt-sub">Plàstic evitat: <strong id="r-ref-pl">—</strong></div>
+    </div>
+  </div>
+
+  <!-- Caixa d'estalvi per fuita -->
+  <div class="saving-box" id="saving-box">
+    <div>
+      <div class="sb-label">💧 ESTALVI PER CORRECCIÓ DE FUITA · <span id="sb-any">—</span></div>
+      <div class="sb-main"><span id="sb-litres">—</span> d'aigua</div>
+    </div>
+    <div style="text-align:right">
+      <div class="sb-label">Estalvi econòmic estimat</div>
+      <div class="sb-main"><span id="sb-euros">—</span></div>
+    </div>
+  </div>
+
+  <!-- Explicació dels 8 càlculs -->
+  <div class="panel" style="margin-top:1.5rem">
+    <div class="panel-head">📋 ELS 8 CÀLCULS IMPLEMENTATS</div>
+    <div class="panel-body">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:1px solid #ddd">
+        <div style="padding:0.9rem;border-right:1px solid #ddd;border-bottom:1px solid #ddd">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--yellow-dim)">C1</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Producció solar anual projectada</span>
+        </div>
+        <div style="padding:0.9rem;border-bottom:1px solid #ddd">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--yellow-dim)">C2</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Producció solar curs escolar (Set–Jun)</span>
+        </div>
+        <div style="padding:0.9rem;border-right:1px solid #ddd;border-bottom:1px solid #ddd">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--blue)">C3</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Pèrdua per fuita anual projectada</span>
+        </div>
+        <div style="padding:0.9rem;border-bottom:1px solid #ddd">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--blue)">C4</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Pèrdua per fuita curs escolar</span>
+        </div>
+        <div style="padding:0.9rem;border-right:1px solid #ddd;border-bottom:1px solid #ddd">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--teal)">C5</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Cost infraestructura digital anual</span>
+        </div>
+        <div style="padding:0.9rem;border-bottom:1px solid #ddd">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--teal)">C6</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Cost infraestructura digital curs</span>
+        </div>
+        <div style="padding:0.9rem;border-right:1px solid #ddd">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--red)">C7</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Estalvi recàrregues retoladors anual</span>
+        </div>
+        <div style="padding:0.9rem">
+          <span style="font-family:var(--ff-mono);font-weight:700;color:var(--red)">C8</span>
+          <span style="font-size:0.84rem;margin-left:0.5rem">Estalvi recàrregues retoladors curs</span>
+        </div>
+      </div>
+      <!-- Gràfic -->
+      <div class="chart-wrap" style="margin-top:1.5rem;height:280px">
+        <canvas id="chart-calc"></canvas>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════ 03 · PLA REDUCCIÓ ══════════ -->
+<section id="sec-pla" class="section">
+
+  <div class="sec-head">
+    <h2>PLA<br/><em>−30%</em></h2>
+    <span class="sec-tag">Objectiu: reduir l'impacte ambiental en 3 anys · 2025–2027</span>
+  </div>
+
+  <!-- Gràfic projecció -->
+  <div class="panel">
+    <div class="panel-head">
+      📉 PROJECCIÓ AMB / SENSE PLA D'ACCIÓ
+      <span class="ph-tag">Fuita d'aigua + Producció solar · 2025–2028</span>
+    </div>
+    <div class="panel-body">
+      <div class="chart-wrap" style="height:300px"><canvas id="chart-proj"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Objectius quantificats -->
+  <div class="panel">
+    <div class="panel-head">🎯 OBJECTIUS QUANTIFICATS (−30% en 3 anys)</div>
+    <div class="panel-body">
+      <div class="prog-row">
+        <div class="prog-label">☀️ Solar optimitzat</div>
+        <div class="prog-track"><div class="prog-fill yellow" style="width:70%"></div></div>
+        <div class="prog-val">+10%/any → 70% cobertura</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-label">💧 Fuita eliminada</div>
+        <div class="prog-track"><div class="prog-fill blue" style="width:70%"></div></div>
+        <div class="prog-val">248 m³ → 74 m³ estalvi</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-label">🌐 Cost digital</div>
+        <div class="prog-track"><div class="prog-fill teal" style="width:30%"></div></div>
+        <div class="prog-val">−9%/any renegociació</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-label">♻️ Recàrregues</div>
+        <div class="prog-track"><div class="prog-fill red" style="width:60%"></div></div>
+        <div class="prog-val">140 u. → 420 u. (+200%)</div>
+      </div>
+
+      <div style="margin-top:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;border:2px solid var(--ink)">
+        <div style="padding:1.2rem;border-right:2px solid var(--ink);background:var(--yellow)">
+          <div style="font-family:var(--ff-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:1px">Estalvi aigua 3 anys</div>
+          <div style="font-family:var(--ff-display);font-size:2.5rem;line-height:1">≈ 521 m³</div>
+          <div style="font-family:var(--ff-mono);font-size:0.72rem;color:var(--ink-light)">≈ 1.485 € estalvi</div>
+        </div>
+        <div style="padding:1.2rem;border-right:2px solid var(--ink)">
+          <div style="font-family:var(--ff-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:1px">CO₂ evitat (solar)</div>
+          <div style="font-family:var(--ff-display);font-size:2.5rem;line-height:1">≈ 4,7 t</div>
+          <div style="font-family:var(--ff-mono);font-size:0.72rem;color:var(--ink-light)">acumulat 2025–2027</div>
+        </div>
+        <div style="padding:1.2rem;border-right:2px solid var(--ink)">
+          <div style="font-family:var(--ff-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:1px">Plàstic evitat</div>
+          <div style="font-family:var(--ff-display);font-size:2.5rem;line-height:1">≈ 5 kg</div>
+          <div style="font-family:var(--ff-mono);font-size:0.72rem;color:var(--ink-light)">retoladors no comprats</div>
+        </div>
+        <div style="padding:1.2rem;background:var(--ink);color:var(--paper)">
+          <div style="font-family:var(--ff-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;color:#aaa">Estalvi total estimat</div>
+          <div style="font-family:var(--ff-display);font-size:2.5rem;line-height:1">≈ 2.500 €</div>
+          <div style="font-family:var(--ff-mono);font-size:0.72rem;color:#aaa">3 anys (2025–2027)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline accions 3 anys -->
+  <div class="panel">
+    <div class="panel-head">📅 CRONOGRAMA D'ACCIONS · 2025–2027</div>
+    <div class="panel-body">
+      <div class="timeline">
+
+        <div class="tl-year">25</div>
+        <div class="tl-content">
+          <span class="tl-tag">Any 1 · Quick Wins · Objectiu −10%</span>
+          <div class="tl-title">DETECCIÓ I CORRECCIÓ RÀPIDA</div>
+          <ul class="tl-actions">
+            <li><strong>💧 Fuita:</strong> Contractar inspecció tècnica de canonades (plomber + càmera endoscòpica). Localitzar i reparar la fuita 150–190 L/h. Objectiu: eliminar el 50% de la pèrdua nocturna.</li>
+            <li><strong>☀️ Solar:</strong> Neteja trimestral dels panells fotovoltaics (+5% rendiment). Revisar connexions de l'inversor SUN2000-36KTL. Monitoratge diari de la producció.</li>
+            <li><strong>♻️ Circular:</strong> Ampliar ús de recàrregues de retoladors a tots els departaments (+100 unitats). Definir protocol RAEE per a equips antics de les aules.</li>
+            <li><strong>🌐 Digital:</strong> Renegociar contractes O2 + DIGI a la renovació anual. Revisar si hi ha serveis duplicats o infrautilitzats.</li>
+          </ul>
+        </div>
+
+        <div class="tl-year">26</div>
+        <div class="tl-content">
+          <span class="tl-tag">Any 2 · Consolidació · Objectiu −20% acumulat</span>
+          <div class="tl-title">OPTIMITZACIÓ I CIRCULARITAT</div>
+          <ul class="tl-actions">
+            <li><strong>💧 Fuita:</strong> Instal·lar sensors IoT de flux nocturn per detectar noves fuites. Sistema d'alarma automàtica per consum anòmal. Objectiu: fuita ≤ 50 L/h.</li>
+            <li><strong>☀️ Solar:</strong> Estudi per ampliar la capacitat instal·lada (30.94 kWp → 40 kWp). Implementar bateria d'emmagatzematge per aprofitar l'excedent de 2.62 kWh exportats/dia.</li>
+            <li><strong>♻️ Circular:</strong> Protocol complet de "Segona Vida" per a ordinadors. Conveni amb entitat social per cedir equips en bon estat. Comptabilitat del plàstic evitat.</li>
+            <li><strong>📱 Mòbil:</strong> Revisar la política d'ús del mòbil. ASIXc1C i A superen el 20% tolerable. Proposta: zones i horaris específics per a ús educatiu del mòbil.</li>
+          </ul>
+        </div>
+
+        <div class="tl-year">27</div>
+        <div class="tl-content">
+          <span class="tl-tag">Any 3 · Verificació −30% · Memòria Sostenibilitat</span>
+          <div class="tl-title">OBJECTIU ASSOLIT + CERTIFICACIÓ</div>
+          <ul class="tl-actions">
+            <li><strong>💧 Fuita:</strong> Fuita ≤ 50 L/h (−70% respecte 2025). Verificació amb la calculadora: 248 m³ → ≤ 74 m³ anuals. Estalvi acumulat ≥ 1.485 €.</li>
+            <li><strong>☀️ Solar:</strong> Cobertura solar ≥ 70% del consum del centre. CO₂ evitat acumulat 3 anys ≥ 4,7 tones. Revenue solar: ≥ 340 € acumulats.</li>
+            <li><strong>♻️ Circular:</strong> ≥420 recàrregues/any. RAEE de tots els equips obsolets gestionat amb gestor certificat (Directiva 2012/19/UE).</li>
+            <li><strong>🏆 CSRD:</strong> Publicació de la primera Memòria de Sostenibilitat de l'ITB. Sol·licitud de certificació ambiental (ISO 14001 o equivalent). Presentació als stakeholders.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════ 04 · COM REDUIR ══════════ -->
+<section id="sec-tips" class="section">
+
+  <div class="sec-head">
+    <h2>COM<br/><em>REDUIR</em></h2>
+    <span class="sec-tag">Accions pràctiques per a cada indicador del centre</span>
+  </div>
+
+  <div class="tips-grid">
+
+    <div class="tip">
+      <div class="tip-icon">☀️</div>
+      <div class="tip-cat">Energia Solar · SDG 7</div>
+      <h4>MAXIMITZAR LA PLANTA FV</h4>
+      <p class="tip-body">La planta SUN2000-36KTL-M3 ja té un 93.8% d'autoconsum. Neteja trimestral dels 30.94 kWp instal·lats pot recuperar fins a +8% de producció. L'excedent de 2.62 kWh/dia podria emmagatzemar-se amb una bateria per usar-se a la nit.</p>
+      <span class="tip-saving">Potencial: +8–15% producció</span>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">💧</div>
+      <div class="tip-cat">Fuita Nocturna · SDG 6</div>
+      <h4>ELIMINAR LA FUITA 150–190 L/H</h4>
+      <p class="tip-body">El consum nocturn anòmal entre 01:00 i 05:00 h representa una pèrdua de ~248 m³/any i ~707 €/any. Una inspecció amb càmera endoscòpica és la primera acció prioritària. Instal·lar un sensor de flux amb alarma nocturna per detectar futures fuites en temps real.</p>
+      <span class="tip-saving">Estalvi immediat: ~707 €/any</span>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🌐</div>
+      <div class="tip-cat">Infraestructura Digital · Governança</div>
+      <h4>OPTIMITZAR CONNECTIVITAT</h4>
+      <p class="tip-body">545.22 €/mes en O2 + DIGI. Revisar si les línies contractades s'ajusten a l'ús real. Agregar serveis DIGI (fibra + mòbil) en un únic contracte pot reduir el cost. Aprofitar la competència del mercat per renegociar anualment.</p>
+      <span class="tip-saving">Potencial: −10–20% cost digital</span>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">♻️</div>
+      <div class="tip-cat">Economia Circular · SDG 12</div>
+      <h4>AMPLIAR RECÀRREGUES</h4>
+      <p class="tip-body">Les 140 recàrregues de retoladors ja eviten ~1.680 g de plàstic. Ampliar el programa a tots els espais del centre (aules, sales de professorat, administració) podria triplicar l'impacte. Afegir retoladors, bolígrafs i cartutxos d'impressora al programa de recàrregues.</p>
+      <span class="tip-saving">Impacte: ×3 plàstic evitat</span>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🖥️</div>
+      <div class="tip-cat">RAEE · Directiva 2012/19/UE</div>
+      <h4>PROTOCOL SEGONA VIDA</h4>
+      <p class="tip-body">Definir un inventari d'equips TIC i la seva vida útil restant. Equips funcionals → cessió a alumnes o entitats socials. Equips inservibles → gestor RAEE autoritzat. Cada ordinador gestionat correctament evita ~300 kg CO₂ equivalent respecte a fabricar-ne un de nou.</p>
+      <span class="tip-saving">Impacte: −300 kg CO₂/equip</span>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">📱</div>
+      <div class="tip-cat">Benestar Digital · SDG 4</div>
+      <h4>POLÍTICA MÒBIL A L'AULA</h4>
+      <p class="tip-body">Les dades reals mostren que ASIXc1C supera el 60% d'ús en algunes sessions (llindar acceptable: 10%). Proposta: protocol clar diferenciant sessions pràctiques (ús permès) i teòriques (mòbil guardat). Monitoratge mensual amb els mateixos indicadors del JSON.</p>
+      <span class="tip-saving">Impacte: benestar + rendiment</span>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🏗️</div>
+      <div class="tip-cat">Edifici · Manteniment</div>
+      <h4>AUDITORIA ENERGÈTICA PRESENCIAL</h4>
+      <p class="tip-body">Visitar les aules TIC i comptar els equips reals (W de cada PC, monitor, projector). Calcular el consum en standby fora d'horari lectiu. Comparar amb els valors teòrics de la calculadora per verificar la coherència de les dades.</p>
+      <span class="tip-saving">Fase 4: contrast teoria vs realitat</span>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">📊</div>
+      <div class="tip-cat">Transparència · CSRD</div>
+      <h4>REPORTING ASG CONTINU</h4>
+      <p class="tip-body">Usar la calculadora desenvolupada en aquesta Fase 3 per generar informes mensuals automàtics. Publicar les dades en el web del centre. Preparar la Memòria de Sostenibilitat 2027 conforme als estàndards CSRD i alineada amb els 4 ODS identificats.</p>
+      <span class="tip-saving">Objectiu: certificació ISO 14001</span>
+    </div>
+
+  </div>
+
+  <!-- Economia circular visual -->
+  <div class="panel" style="margin-top:1.5rem">
+    <div class="panel-head">♻️ PRINCIPIS ECONOMIA CIRCULAR APLICATS A L'ITB</div>
+    <div class="panel-body">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);text-align:center">
+        <div style="padding:1.5rem;border-right:2px solid var(--ink)">
+          <div style="font-size:2.2rem;margin-bottom:0.5rem">🔻</div>
+          <div style="font-family:var(--ff-display);font-size:1.4rem;letter-spacing:1px">REDUIR</div>
+          <p style="font-size:0.78rem;color:var(--ink-light);margin-top:0.4rem;line-height:1.4">Menys consum en origen. Panells solar, neteja LED, impressió dosificada.</p>
+        </div>
+        <div style="padding:1.5rem;border-right:2px solid var(--ink);background:var(--paper-dark)">
+          <div style="font-size:2.2rem;margin-bottom:0.5rem">🔁</div>
+          <div style="font-family:var(--ff-display);font-size:1.4rem;letter-spacing:1px">REUTILITZAR</div>
+          <p style="font-size:0.78rem;color:var(--ink-light);margin-top:0.4rem;line-height:1.4">Recàrregues retoladors. Equips TIC "Segona Vida". Paper una cara → esborrany.</p>
+        </div>
+        <div style="padding:1.5rem;border-right:2px solid var(--ink)">
+          <div style="font-size:2.2rem;margin-bottom:0.5rem">♻️</div>
+          <div style="font-family:var(--ff-display);font-size:1.4rem;letter-spacing:1px">RECICLAR</div>
+          <p style="font-size:0.78rem;color:var(--ink-light);margin-top:0.4rem;line-height:1.4">RAEE Directiva 2012/19/UE. Tòners. Plàstic. Punt verd autoritzat.</p>
+        </div>
+        <div style="padding:1.5rem;background:var(--ink);color:var(--paper)">
+          <div style="font-size:2.2rem;margin-bottom:0.5rem">🔧</div>
+          <div style="font-family:var(--ff-display);font-size:1.4rem;letter-spacing:1px">REPARAR</div>
+          <p style="font-size:0.78rem;color:#aaa;margin-top:0.4rem;line-height:1.4">Fuites d'aigua. Equips TIC avariats. Extends life → evita fabricació nova.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="f-left">TA08 · ITB · G10</div>
+  <div class="f-right">
+    Vazquez Gayoso, Didac &amp; Salas Vargas, Faiver Enrique · ASIXc1-G10<br/>
+    Mòdul 1708 Sostenibilitat · CFGS ASIX · Curs 25/26<br/>
+    Dades: dataclean.json · ITB Leaks · CC-BY 4.0
+  </div>
+</footer>
+
+<script src="js/calculadora.js"></script>
+</body>
+</html>
