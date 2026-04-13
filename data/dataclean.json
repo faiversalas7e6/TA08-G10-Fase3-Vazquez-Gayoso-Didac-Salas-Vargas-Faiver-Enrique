@@ -25,7 +25,7 @@ let BASE = {
 async function loadData() {
   try {
     // Canviat a dataclean_final.json com has demanat
-    const r = await fetch('data/dataclean_final.json');
+    const r = await fetch('data/dataclean.json');
     DATA = await r.json();
     
     // Extraure dades base dinàmicament del JSON final
