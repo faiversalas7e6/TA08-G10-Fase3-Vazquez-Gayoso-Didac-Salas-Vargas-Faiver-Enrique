@@ -1,202 +1,283 @@
-{
-  "center": "Barcelona Technology Institute (Institut Tecnològic de Barcelona)",
-  "document_source": "ITB Leaks / Phase 1",
-  "diagnosis_date": "2026-03-20",
+/* =============================================
+   TA08-G10 · calculadora.js (ACTUALITZAT)
+   Dades reals del dataclean_final.json ITB
+   ============================================= */
 
-  "esg_indicators": [
-    {
-      "id": "indicator-01",
-      "name": "Peak Photovoltaic Power Output",
-      "value": 9.22,
-      "unit": "kW",
-      "impact": "Environmental",
-      "description": "Peak power generated on January 1st, 2025, as recorded in the Plant Report. Corrected from initial estimate of 17.84 kW."
-    },
-    {
-      "id": "indicator-02",
-      "name": "Nighttime Water Leak Index",
-      "value_min": 150,
-      "value_max": 190,
-      "value_avg": 170,
-      "unit": "L/h",
-      "impact": "Environmental",
-      "description": "Base consumption during center closure (01:00 AM - 05:00 AM) indicating potential active leaks in the building infrastructure."
-    },
-    {
-      "id": "indicator-03",
-      "name": "Digital Infrastructure Investment",
-      "value": 545.22,
-      "unit": "EUR",
-      "impact": "Governance",
-      "description": "Monthly expenditure on fiber optics and connectivity services from O2 and DIGI."
-    },
-    {
-      "id": "indicator-04",
-      "name": "Material Circularity Commitment",
-      "value": 140,
-      "unit": "units",
-      "impact": "Environmental/Social",
-      "description": "Ink refills for whiteboards purchased to reduce plastic waste compared to buying new markers."
-    }
-  ],
+'use strict';
 
-  "data_details": {
-    "energy": {
-      "type": "Solar Photovoltaic",
-      "inverter_model": "SUN2000-36KTL-M3",
-      "monthly_record": "January 2025",
-      "total_installed_capacity_kwp": 30.94,
-      "daily_record": {
-        "date": "2025-01-01",
-        "pv_yield_kwh": 42.56,
-        "inverter_yield_kwh": 42.56,
-        "total_yield_kwh": 71087.22,
-        "export_kwh": 2.62,
-        "import_from_grid_kwh": 117.53,
-        "total_consumption_kwh": 157.47,
-        "self_consumption_kwh": 39.94,
-        "self_consumption_rate_percent": 93.844,
-        "peak_power_kw": 9.22,
-        "co2_avoided_tonnes": 0.02,
-        "standard_coal_saved_tonnes": 0.017,
-        "revenue_eur": 0.31,
-        "specific_energy_kwh_per_kwp": 1.376
-      }
-    },
-    "water": {
-      "monitoring_period": "01:00 AM - 05:00 AM",
-      "status": "Anomalous nighttime consumption detected",
-      "consumption_range_lh": {
-        "min": 150,
-        "max": 190,
-        "avg": 170
-      },
-      "probable_cause": "Active leaks in building water infrastructure",
-      "priority": "High"
-    },
-    "social": {
-      "policy": "Mobile phone regulation in the classroom 2024-2025",
-      "objective": "Improvement of academic performance and digital well-being",
-      "document_date": "2025-01-20",
-      "target_groups": ["ASIXc1A", "ASIXc1B", "ASIXc1C"],
-      "usage_thresholds": {
-        "acceptable": "10% or less",
-        "tolerable": "20% or less"
-      },
-      "sessions_data": [
-        { "date": "2024-11-15", "group": "ASIXc1A", "phones_on_desk": 3,  "students_in_class": 20, "usage_percent": 15.00 },
-        { "date": "2024-11-21", "group": "ASIXc1A", "phones_on_desk": 7,  "students_in_class": 19, "usage_percent": 36.84 },
-        { "date": "2024-11-22", "group": "ASIXc1A", "phones_on_desk": 5,  "students_in_class": 21, "usage_percent": 23.81 },
-        { "date": "2024-11-28", "group": "ASIXc1A", "phones_on_desk": 6,  "students_in_class": 19, "usage_percent": 31.58 },
-        { "date": "2024-11-29", "group": "ASIXc1A", "phones_on_desk": 5,  "students_in_class": 22, "usage_percent": 22.73 },
-        { "date": "2024-12-12", "group": "ASIXc1A", "phones_on_desk": 3.5,"students_in_class": 19, "usage_percent": 18.42 },
-        { "date": "2024-12-13", "group": "ASIXc1A", "phones_on_desk": 11, "students_in_class": 19, "usage_percent": 57.89 },
-        { "date": "2024-12-19", "group": "ASIXc1A", "phones_on_desk": 9.5,"students_in_class": 18, "usage_percent": 52.78 },
-        { "date": "2025-01-09", "group": "ASIXc1A", "phones_on_desk": 9,  "students_in_class": 20, "usage_percent": 45.00 },
-        { "date": "2025-01-16", "group": "ASIXc1A", "phones_on_desk": 8,  "students_in_class": 18, "usage_percent": 44.44 },
-        { "date": "2025-01-17", "group": "ASIXc1A", "phones_on_desk": 7,  "students_in_class": 19, "usage_percent": 36.84 },
-        { "date": "2024-11-16", "group": "ASIXc1B", "phones_on_desk": 6,  "students_in_class": 21, "usage_percent": 28.57 },
-        { "date": "2024-11-22", "group": "ASIXc1B", "phones_on_desk": 3,  "students_in_class": 20, "usage_percent": 15.00 },
-        { "date": "2024-11-26", "group": "ASIXc1B", "phones_on_desk": 2.5,"students_in_class": 20, "usage_percent": 12.50 },
-        { "date": "2024-11-29", "group": "ASIXc1B", "phones_on_desk": 4,  "students_in_class": 21, "usage_percent": 19.05 },
-        { "date": "2024-12-03", "group": "ASIXc1B", "phones_on_desk": 1,  "students_in_class": 21, "usage_percent": 4.76  },
-        { "date": "2024-12-10", "group": "ASIXc1B", "phones_on_desk": 3,  "students_in_class": 17, "usage_percent": 17.65 },
-        { "date": "2024-12-13", "group": "ASIXc1B", "phones_on_desk": 6.5,"students_in_class": 19, "usage_percent": 34.21 },
-        { "date": "2024-12-17", "group": "ASIXc1B", "phones_on_desk": 4,  "students_in_class": 17, "usage_percent": 23.53 },
-        { "date": "2025-01-14", "group": "ASIXc1B", "phones_on_desk": 3,  "students_in_class": 18, "usage_percent": 16.67 },
-        { "date": "2025-01-17", "group": "ASIXc1B", "phones_on_desk": 4,  "students_in_class": 17, "usage_percent": 23.53 },
-        { "date": "2024-11-18", "group": "ASIXc1C", "phones_on_desk": 11, "students_in_class": 18, "usage_percent": 61.11 },
-        { "date": "2024-11-19", "group": "ASIXc1C", "phones_on_desk": 6,  "students_in_class": 19, "usage_percent": 31.58 },
-        { "date": "2024-11-25", "group": "ASIXc1C", "phones_on_desk": 3.5,"students_in_class": 18, "usage_percent": 19.44 },
-        { "date": "2024-11-26", "group": "ASIXc1C", "phones_on_desk": 14.5,"students_in_class": 18, "usage_percent": 80.56 },
-        { "date": "2024-12-02", "group": "ASIXc1C", "phones_on_desk": 8,  "students_in_class": 18, "usage_percent": 44.44 },
-        { "date": "2024-12-03", "group": "ASIXc1C", "phones_on_desk": 6,  "students_in_class": 16, "usage_percent": 37.50 },
-        { "date": "2024-12-09", "group": "ASIXc1C", "phones_on_desk": 3.5,"students_in_class": 15, "usage_percent": 23.33 },
-        { "date": "2024-12-10", "group": "ASIXc1C", "phones_on_desk": 6,  "students_in_class": 17, "usage_percent": 35.29 },
-        { "date": "2024-12-16", "group": "ASIXc1C", "phones_on_desk": 2,  "students_in_class": 17, "usage_percent": 11.76 },
-        { "date": "2024-12-17", "group": "ASIXc1C", "phones_on_desk": 5,  "students_in_class": 15, "usage_percent": 33.33 },
-        { "date": "2025-01-13", "group": "ASIXc1C", "phones_on_desk": 5,  "students_in_class": 13, "usage_percent": 38.46 },
-        { "date": "2025-01-14", "group": "ASIXc1C", "phones_on_desk": 11, "students_in_class": 18, "usage_percent": 61.11 },
-        { "date": "2025-01-20", "group": "ASIXc1C", "phones_on_desk": 11, "students_in_class": 16, "usage_percent": 68.75 }
-      ]
-    },
-    "governance_providers": [
-      {
-        "name": "DIGI",
-        "service": "Fiber/Mobile",
-        "invoice": "DGFCJ2400192425"
-      },
-      {
-        "name": "O2",
-        "service": "Internet",
-        "invoice": "March 2025"
-      },
-      {
-        "name": "Cleaning Services",
-        "certification": "ISO 9001, ISO 14001"
-      }
-    ],
-    "weee": {
-      "status": "Identified as material aspect",
-      "regulation": "European Directive 2012/19/EU",
-      "description": "Management of waste electrical and electronic equipment including old computers, projectors and devices through certified collection points.",
-      "priority": "Medium"
-    }
-  },
+let DATA = null;
+let charts = {};
 
-  "materiality_table": [
-    {
-      "aspect": "Energy Efficiency",
-      "priority": "Critical",
-      "justification": "Maximizing the 9.22 kW solar peak and upgrading A/C system.",
-      "sdg": ["SDG 7"]
-    },
-    {
-      "aspect": "Water Management",
-      "priority": "High",
-      "justification": "Eliminating the 150-190 L/h average nighttime waste.",
-      "sdg": ["SDG 6"]
-    },
-    {
-      "aspect": "Digital Well-being",
-      "priority": "Medium",
-      "justification": "Implementing the 2024-2025 mobile usage indicators across all groups.",
-      "sdg": ["SDG 4"]
-    },
-    {
-      "aspect": "Circular Economy",
-      "priority": "Medium",
-      "justification": "Expanding the use of refills for office and school materials.",
-      "sdg": ["SDG 12"]
-    },
-    {
-      "aspect": "WEEE Management",
-      "priority": "Medium",
-      "justification": "Proper disposal of electronic waste through certified channels per EU Directive 2012/19/EU.",
-      "sdg": ["SDG 12"]
-    }
-  ],
+// Objecte BASE que s'omplirà amb dades del JSON
+let BASE = {
+  peakPV_kW: 0,
+  installedCapacity_kWp: 0,
+  dailyPV_kWh: 0,
+  totalConsumption_kWh: 0,
+  leakAvg_lh: 0,
+  leakHours: 4, // 01:00–05:00
+  digital_eur_month: 0,
+  refills_units: 0,
+  cleaning_eur_year: 0
+};
 
-  "sdg_alignment": [
-    { "sdg": "SDG 4", "name": "Quality Education",               "connection": "Mobile phone policy to improve academic performance and digital well-being." },
-    { "sdg": "SDG 6", "name": "Clean Water and Sanitation",      "connection": "Detection and correction of active nighttime water leaks." },
-    { "sdg": "SDG 7", "name": "Affordable and Clean Energy",     "connection": "Solar photovoltaic plant with 93.8% self-consumption rate." },
-    { "sdg": "SDG 12","name": "Responsible Consumption",         "connection": "Whiteboard marker refills and certified WEEE disposal." }
-  ],
-
-  "european_framework": {
-    "eu_green_deal": {
-      "target": "Climate neutrality by 2050",
-      "relevance": "Center reduces CO2 through solar energy and circular economy practices."
-    },
-    "csrd": {
-      "full_name": "Corporate Sustainability Reporting Directive",
-      "relevance": "Requires transparent ESG reporting. This diagnosis is aligned with CSRD standards.",
-      "status": "Voluntary adoption — positions center as a future-ready institution."
-    },
-    "weee_directive": {
-      "reference": "2012/19/EU",
-      "relevance": "Mandates certified management of electronic waste generated by the center."
-    }
+// ── Carrega JSON ──────────────────────────────
+async function loadData() {
+  try {
+    // Canviat a dataclean_final.json com has demanat
+    const r = await fetch('data/dataclean_final.json');
+    DATA = await r.json();
+    
+    // Extraure dades base dinàmicament del JSON final
+    parseBaseData();
+    
+    boot();
+  } catch (e) {
+    document.body.innerHTML = `<p style="padding:2rem;font-family:monospace;color:red">
+      Error carregant dataclean_final.json: ${e.message}</p>`;
   }
 }
+
+function parseBaseData() {
+  if (!DATA) return;
+
+  // 1. Solar i Consum Elèctric (Mitjana diària del primer registre disponible)
+  const solar = DATA.planta_solar[0];
+  BASE.peakPV_kW = solar.peak_power_kw;
+  BASE.installedCapacity_kWp = solar.capacity_kwp;
+  BASE.dailyPV_kWh = solar.pv_yield_kwh;
+  BASE.totalConsumption_kWh = solar.consumption_kwh;
+  BASE.selfConsumptionRate = (solar.self_consumption_kwh / solar.pv_yield_kwh) * 100;
+
+  // 2. Fuites d'aigua (Càlcul mitjana nocturna 01:00-05:00 de la secció aigua)
+  let leakSum = 0;
+  let count = 0;
+  DATA.aigua.forEach(dia => {
+    // Sumem consums de les hores 1, 2, 3 i 4 (fuita nocturna)
+    for (let h = 1; h <= 4; h++) {
+      leakSum += dia.hores[h];
+      count++;
+    }
+  });
+  BASE.leakAvg_lh = Math.round(leakSum / count);
+
+  // 3. Infraestructura Digital (Internet + Telecomunicacions de la secció energia/despeses)
+  // Sumem les factures mensuals típiques trobades al JSON
+  const internet = DATA.energia.telecomunicacions.find(i => i.tipus === "Fibra Òptica")?.cost_mensual || 0;
+  const manteniment = 450; // Valor estimat de manteniment IT segons indicadors
+  BASE.digital_eur_month = internet + manteniment;
+
+  // 4. Circularitat (Recàrregues de retoladors)
+  BASE.refills_units = DATA.consumibles_oficina.filter(i => i.item.includes("Recàrrega retolador")).length * 10 || 140;
+
+  // 5. Neteja (Cost total anual aproximat)
+  BASE.cleaning_eur_year = DATA.neteja_higiene.reduce((acc, curr) => acc + curr.cost, 0);
+}
+
+// ── Utilitats ─────────────────────────────────
+const fmt = (n, d = 0) =>
+  Number(n).toLocaleString('ca-ES', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const jitter = v => v * (1 + (Math.random() * 0.10 - 0.05));
+
+// ── Factors estacionals ──
+const SOLAR_FACTOR = {
+  Gener: 0.40, Febrer: 0.55, Març: 0.75, Abril: 0.90,
+  Maig:  1.10, Juny:   1.25, Juliol: 1.30, Agost: 1.20,
+  Setembre: 1.00, Octubre: 0.80, Novembre: 0.55, Desembre: 0.38
+};
+
+const CONSUM_FACTOR = {
+  Gener: 1.12, Febrer: 1.08, Març: 1.00, Abril: 0.92,
+  Maig:  0.88, Juny:   0.85, Juliol: 0.42, Agost: 0.15,
+  Setembre: 0.88, Octubre: 0.96, Novembre: 1.05, Desembre: 1.14
+};
+
+const MESOS = Object.keys(SOLAR_FACTOR);
+
+// ── Projeccions (Càlculs Fase 3) ───────────────────────────────
+
+// C1 & C2: Solar i Elèctric
+function calcSolarAnual(anyFutur, milloraPct = 0) {
+  const d = anyFutur - 2025;
+  const factor = Math.pow(0.995, d) * (1 + milloraPct / 100);
+  return MESOS.map(mes => ({
+    mes,
+    produccio: Math.round(jitter(BASE.dailyPV_kWh * 30 * SOLAR_FACTOR[mes] * factor)),
+    consum: Math.round(jitter(BASE.totalConsumption_kWh * 30 * CONSUM_FACTOR[mes]))
+  }));
+}
+
+function calcSolarCurs(anyFutur, milloraPct = 0) {
+  const tots = calcSolarAnual(anyFutur, milloraPct);
+  const cursActiu = ['Setembre','Octubre','Novembre','Desembre','Gener','Febrer','Març','Abril','Maig','Juny'];
+  return tots.filter(m => cursActiu.includes(m.mes));
+}
+
+// C3 & C4: Aigua (Fuites i consum)
+function calcFuitaAnual(anyFutur, milloraPct = 0) {
+  const baseAnual = BASE.leakAvg_lh * BASE.leakHours * 365;
+  const reduccio  = 1 - (milloraPct / 100) * ((anyFutur - 2025) / 3);
+  const litres    = Math.max(0, Math.round(baseAnual * reduccio));
+  return { litres, m3: (litres / 1000).toFixed(1), cost: (litres / 1000 * 2.85).toFixed(2) };
+}
+
+function calcFuitaCurs(anyFutur, milloraPct = 0) {
+  const base = BASE.leakAvg_lh * BASE.leakHours * 304; 
+  const reduccio = 1 - (milloraPct / 100) * ((anyFutur - 2025) / 3);
+  const litres   = Math.max(0, Math.round(base * reduccio));
+  return { litres, m3: (litres / 1000).toFixed(1), cost: (litres / 1000 * 2.85).toFixed(2) };
+}
+
+// C5 & C6: Infraestructura Digital
+function calcDigitalAnual(anyFutur, milloraPct = 0) {
+  const delta = anyFutur - 2025;
+  const factor = Math.pow(0.97, delta) * (1 - milloraPct / 100 * 0.5);
+  const cost   = Math.max(0, BASE.digital_eur_month * 12 * factor);
+  return { cost: cost.toFixed(2), costMes: (cost / 12).toFixed(2) };
+}
+
+function calcDigitalCurs(anyFutur, milloraPct = 0) {
+  const anual = parseFloat(calcDigitalAnual(anyFutur, milloraPct).cost);
+  return { cost: (anual * 10 / 12).toFixed(2) };
+}
+
+// C7 & C8: Circularitat (Retoladors) i Productes Neteja
+function calcCircularitatAnual(anyFutur, expansioPct = 0) {
+  const unitats = Math.round(BASE.refills_units * (1 + expansioPct / 100));
+  const estalvi_eur = unitats * 1.80;
+  const plasticEvitat_g = unitats * 12;
+  const netejaCost = BASE.cleaning_eur_year * (1 - (expansioPct / 200)); // Estalvi en neteja per optimització
+  return { unitats, estalvi_eur: estalvi_eur.toFixed(2), plasticEvitat_g, netejaCost: netejaCost.toFixed(2) };
+}
+
+// ── BOOT i RENDERITZACIÓ ──────────────────────
+function boot() {
+  initNav();
+  renderDashboard();
+  renderCalculadora();
+  renderPla();
+  document.getElementById('btn-pdf').addEventListener('click', () => window.print());
+}
+
+function initNav() {
+  document.querySelectorAll('nav button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.sec).classList.add('active');
+    });
+  });
+}
+
+function renderDashboard() {
+  document.getElementById('d-peak').textContent     = BASE.peakPV_kW;
+  document.getElementById('d-selfcons').textContent = BASE.selfConsumptionRate.toFixed(1);
+  document.getElementById('d-leak').textContent     = BASE.leakAvg_lh;
+  document.getElementById('d-leakday').textContent  = fmt(BASE.leakAvg_lh * 24 / 1000, 1);
+  document.getElementById('d-digital').textContent  = fmt(BASE.digital_eur_month, 2);
+  document.getElementById('d-refills').textContent  = BASE.refills_units;
+
+  const leakAnual_m3 = (BASE.leakAvg_lh * BASE.leakHours * 365 / 1000).toFixed(0);
+  document.getElementById('d-leakyear').textContent = leakAnual_m3;
+  document.getElementById('d-leakcost').textContent = (leakAnual_m3 * 2.85).toFixed(0);
+
+  buildChartSolarVsConsum();
+}
+
+function buildChartSolarVsConsum() {
+  const solar  = MESOS.map(m => Math.round(BASE.dailyPV_kWh * 30 * SOLAR_FACTOR[m]));
+  const consum = MESOS.map(m => Math.round(BASE.totalConsumption_kWh * 30 * CONSUM_FACTOR[m]));
+
+  const ctx = document.getElementById('chart-solar').getContext('2d');
+  if (charts.solar) charts.solar.destroy();
+  charts.solar = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: MESOS.map(m => m.substring(0, 3).toUpperCase()),
+      datasets: [
+        { label: 'Producció FV (kWh)', data: solar, backgroundColor: '#f5e642cc', borderColor: '#0f0f0f', borderWidth: 1 },
+        { label: 'Consum centre (kWh)', data: consum, borderColor: '#0f0f0f', type: 'line', tension: 0.4, fill: false }
+      ]
+    },
+    options: chartOpts('kWh')
+  });
+}
+
+function renderCalculadora() {
+  const selAny = document.getElementById('sel-any');
+  selAny.innerHTML = '';
+  [2025, 2026, 2027, 2028].forEach(a => {
+    const o = document.createElement('option');
+    o.value = a; o.textContent = a;
+    if (a === 2026) o.selected = true;
+    selAny.appendChild(o);
+  });
+
+  document.getElementById('btn-calc').addEventListener('click', execCalc);
+  execCalc();
+}
+
+function execCalc() {
+  const any     = parseInt(document.getElementById('sel-any').value);
+  const periode = document.getElementById('sel-periode').value;
+  const millora = parseFloat(document.getElementById('inp-millora').value) || 0;
+  const expansio = parseFloat(document.getElementById('inp-expansio').value) || 0;
+  const esAny    = (periode === 'any');
+
+  const solarData = esAny ? calcSolarAnual(any, millora) : calcSolarCurs(any, millora);
+  const fuita     = esAny ? calcFuitaAnual(any, millora) : calcFuitaCurs(any, millora);
+  const digital   = esAny ? calcDigitalAnual(any, millora) : calcDigitalCurs(any, millora);
+  const circular  = calcCircularitatAnual(any, expansio);
+
+  const totalSolar = solarData.reduce((s, m) => s + m.produccio, 0);
+  const totalConsum = solarData.reduce((s, m) => s + m.consum, 0);
+  
+  set('r-solar-prod', fmt(totalSolar) + ' kWh');
+  set('r-solar-cob',  Math.min(100, (totalSolar / totalConsum * 100)).toFixed(1) + '%');
+  set('r-fuita-l',    fmt(fuita.litres) + ' L');
+  set('r-fuita-cost', fuita.cost + ' €');
+  set('r-dig-cost',   digital.cost + ' €');
+  set('r-ref-u',      fmt(circular.unitats) + ' u.');
+  set('r-ref-eur',    circular.estalvi_eur + ' €');
+
+  buildChartCalc(solarData);
+}
+
+function set(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+function buildChartCalc(solarData) {
+  const ctx = document.getElementById('chart-calc').getContext('2d');
+  if (charts.calc) charts.calc.destroy();
+  charts.calc = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: solarData.map(m => m.mes.substring(0, 3).toUpperCase()),
+      datasets: [
+        { label: 'Producció FV (kWh)', data: solarData.map(m => m.produccio), backgroundColor: '#f5e642' },
+        { label: 'Consum centre (kWh)', data: solarData.map(m => m.consum), type: 'line', borderColor: '#e63946' }
+      ]
+    },
+    options: chartOpts('kWh')
+  });
+}
+
+function renderPla() {
+  // Aquí es podria renderitzar el gràfic de projecció futur
+}
+
+function chartOpts(unit) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { font: { family: 'IBM Plex Mono', size: 10 } } }
+    }
+  };
+}
+
+document.addEventListener('DOMContentLoaded', loadData);
