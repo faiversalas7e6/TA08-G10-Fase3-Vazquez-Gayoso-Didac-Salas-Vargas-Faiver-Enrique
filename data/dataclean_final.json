@@ -1,0 +1,1232 @@
+{
+  "metadata": {
+    "projecte": "TA08 Calculadora d'estalvi energètic",
+    "descripcio": "Dades netejades a partir de factures, albarans, gràfiques de consum d'aigua, informe de mòbils a l'aula i report de planta solar.",
+    "nota_metodologica": [
+      "En aigua, els valors procedeixen de lectura visual de gràfiques; els marcats com 'exacte' provenen del tooltip visible i la resta són aproximats.",
+      "El dia 2024-02-29 és parcial perquè només hi ha dades fins a les 12:00.",
+      "S'ha eliminat la factura DIGI duplicada i s'han suprimit capçaleres i columnes desplaçades del JSON combinat."
+    ]
+  },
+  "aigua": [
+    {
+      "data": "2024-02-25",
+      "tipus": "consum_horari",
+      "unitat": "litres",
+      "estat": "complet",
+      "hores": [
+        {
+          "hora": "00:00",
+          "consum_l": 180,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "01:00",
+          "consum_l": 190,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "02:00",
+          "consum_l": 190,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "03:00",
+          "consum_l": 193,
+          "observacio": "exacte"
+        },
+        {
+          "hora": "04:00",
+          "consum_l": 195,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "05:00",
+          "consum_l": 195,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "06:00",
+          "consum_l": 200,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "07:00",
+          "consum_l": 202,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "08:00",
+          "consum_l": 202,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "09:00",
+          "consum_l": 220,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "10:00",
+          "consum_l": 218,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "11:00",
+          "consum_l": 233,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "12:00",
+          "consum_l": 205,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "13:00",
+          "consum_l": 235,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "14:00",
+          "consum_l": 252,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "15:00",
+          "consum_l": 302,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "16:00",
+          "consum_l": 198,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "17:00",
+          "consum_l": 190,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "18:00",
+          "consum_l": 180,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "19:00",
+          "consum_l": 180,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "20:00",
+          "consum_l": 178,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "21:00",
+          "consum_l": 182,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "22:00",
+          "consum_l": 184,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "23:00",
+          "consum_l": 246,
+          "observacio": "aproximat"
+        }
+      ],
+      "font": "captura_aigua"
+    },
+    {
+      "data": "2024-02-28",
+      "tipus": "consum_horari",
+      "unitat": "litres",
+      "estat": "complet",
+      "hores": [
+        {
+          "hora": "00:00",
+          "consum_l": 200,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "01:00",
+          "consum_l": 154,
+          "observacio": "exacte"
+        },
+        {
+          "hora": "02:00",
+          "consum_l": 150,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "03:00",
+          "consum_l": 150,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "04:00",
+          "consum_l": 155,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "05:00",
+          "consum_l": 160,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "06:00",
+          "consum_l": 160,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "07:00",
+          "consum_l": 275,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "08:00",
+          "consum_l": 275,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "09:00",
+          "consum_l": 460,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "10:00",
+          "consum_l": 435,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "11:00",
+          "consum_l": 385,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "12:00",
+          "consum_l": 470,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "13:00",
+          "consum_l": 500,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "14:00",
+          "consum_l": 440,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "15:00",
+          "consum_l": 400,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "16:00",
+          "consum_l": 395,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "17:00",
+          "consum_l": 530,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "18:00",
+          "consum_l": 445,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "19:00",
+          "consum_l": 405,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "20:00",
+          "consum_l": 330,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "21:00",
+          "consum_l": 170,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "22:00",
+          "consum_l": 250,
+          "observacio": "aproximat"
+        },
+        {
+          "hora": "23:00",
+          "consum_l": 250,
+          "observacio": "aproximat"
+        }
+      ],
+      "font": "captura_aigua"
+    },
+    {
+      "data": "2024-02-29",
+      "tipus": "consum_horari",
+      "unitat": "litres",
+      "estat": "parcial",
+      "hores": [
+        {
+          "hora": "00:00",
+          "consum_l": 175,
+          "observacio": "exacte_parcial"
+        },
+        {
+          "hora": "01:00",
+          "consum_l": 160,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "02:00",
+          "consum_l": 160,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "03:00",
+          "consum_l": 165,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "04:00",
+          "consum_l": 170,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "05:00",
+          "consum_l": 175,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "06:00",
+          "consum_l": 180,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "07:00",
+          "consum_l": 180,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "08:00",
+          "consum_l": 300,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "09:00",
+          "consum_l": 290,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "10:00",
+          "consum_l": 440,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "11:00",
+          "consum_l": 500,
+          "observacio": "aproximat_parcial"
+        },
+        {
+          "hora": "12:00",
+          "consum_l": 450,
+          "observacio": "aproximat_parcial"
+        }
+      ],
+      "font": "captura_aigua"
+    }
+  ],
+  "consumibles_oficina": [
+    {
+      "data": "2024-04-30",
+      "producte": "recambio_borrador",
+      "quantitat": 6,
+      "unitat": "unitats",
+      "cost_eur": 5.6,
+      "font": "factura"
+    },
+    {
+      "data": "2024-04-30",
+      "producte": "borrador_pissarra",
+      "quantitat": 6,
+      "unitat": "unitats",
+      "cost_eur": 40.98,
+      "font": "factura"
+    },
+    {
+      "data": "2024-04-30",
+      "producte": "paper_a4_80g",
+      "quantitat": 15,
+      "unitat": "paquets",
+      "cost_eur": 80.1,
+      "font": "factura"
+    },
+    {
+      "data": "2024-04-30",
+      "producte": "marcador_pissarra_verd",
+      "quantitat": 25,
+      "unitat": "unitats",
+      "cost_eur": 22.25,
+      "font": "factura"
+    },
+    {
+      "data": "2024-04-30",
+      "producte": "marcador_pissarra_roig",
+      "quantitat": 30,
+      "unitat": "unitats",
+      "cost_eur": 26.7,
+      "font": "factura"
+    },
+    {
+      "data": "2024-04-30",
+      "producte": "marcador_pissarra_negre",
+      "quantitat": 30,
+      "unitat": "unitats",
+      "cost_eur": 26.7,
+      "font": "factura"
+    },
+    {
+      "data": "2024-04-30",
+      "producte": "marcador_pissarra_blau",
+      "quantitat": 30,
+      "unitat": "unitats",
+      "cost_eur": 26.7,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-31",
+      "producte": "recambio_marcador_pissarra_verd",
+      "quantitat": 30,
+      "unitat": "unitats",
+      "cost_eur": 27.3,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-31",
+      "producte": "recambio_marcador_pissarra_blau",
+      "quantitat": 40,
+      "unitat": "unitats",
+      "cost_eur": 28.4,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-31",
+      "producte": "paper_a4_80g",
+      "quantitat": 30,
+      "unitat": "paquets",
+      "cost_eur": 160.2,
+      "font": "factura"
+    },
+    {
+      "data": "2024-06-19",
+      "producte": "recambio_marcador_pissarra_negre",
+      "quantitat": 40,
+      "unitat": "unitats",
+      "cost_eur": 28.4,
+      "font": "factura"
+    },
+    {
+      "data": "2024-06-30",
+      "producte": "recambio_marcador_pissarra_negre",
+      "quantitat": 40,
+      "unitat": "unitats",
+      "cost_eur": 28.4,
+      "font": "factura"
+    },
+    {
+      "data": "2024-10-31",
+      "producte": "paper_a4_80g",
+      "quantitat": 20,
+      "unitat": "paquets",
+      "cost_eur": 109.4,
+      "font": "factura"
+    },
+    {
+      "data": "2024-10-31",
+      "producte": "paper_a4_80g",
+      "quantitat": 10,
+      "unitat": "paquets",
+      "cost_eur": 54.7,
+      "font": "factura"
+    }
+  ],
+  "manteniment": [
+    {
+      "data": "2024-09-13",
+      "producte": "serveis_extraordinaris",
+      "quantitat": 1,
+      "unitat": "servei",
+      "cost_eur": 575.0,
+      "font": "factura"
+    },
+    {
+      "data": "2024-09-13",
+      "producte": "material_ferro",
+      "quantitat": 1,
+      "unitat": "lot",
+      "cost_eur": 132.93,
+      "font": "factura"
+    },
+    {
+      "data": "2024-09-13",
+      "producte": "material_fusta",
+      "quantitat": 1,
+      "unitat": "lot",
+      "cost_eur": 129.24,
+      "font": "factura"
+    },
+    {
+      "data": "2024-07-05",
+      "producte": "reparacio_aire_acondicionat",
+      "quantitat": 1,
+      "unitat": "servei",
+      "cost_eur": 288.0,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-23",
+      "producte": "instalacio_electrica",
+      "quantitat": 1,
+      "unitat": "servei",
+      "cost_eur": 1986.0,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-23",
+      "producte": "material_electric",
+      "quantitat": 1,
+      "unitat": "lot",
+      "cost_eur": 119.8,
+      "font": "factura"
+    }
+  ],
+  "neteja_higiene": [
+    {
+      "data": "2024-06-20",
+      "producte": "paper_secamanos",
+      "quantitat": 10,
+      "unitat": "fardos",
+      "cost_eur": 182.5,
+      "font": "factura"
+    },
+    {
+      "data": "2024-06-20",
+      "producte": "sacs_brossa_industrials",
+      "quantitat": 20,
+      "unitat": "unitats",
+      "cost_eur": 30.2,
+      "font": "factura"
+    },
+    {
+      "data": "2024-06-20",
+      "producte": "bosses_brossa_petites",
+      "quantitat": 30,
+      "unitat": "unitats",
+      "cost_eur": 33.9,
+      "font": "factura"
+    },
+    {
+      "data": "2024-06-20",
+      "producte": "paper_wc_industrial",
+      "quantitat": 10,
+      "unitat": "fardos",
+      "cost_eur": 256.7,
+      "font": "factura"
+    },
+    {
+      "data": "2024-06-20",
+      "producte": "paper_secamanos",
+      "quantitat": 5,
+      "unitat": "fardos",
+      "cost_eur": 91.25,
+      "font": "factura"
+    },
+    {
+      "data": "2024-06-20",
+      "producte": "sabo_mans_5l",
+      "quantitat": 3,
+      "unitat": "garrafes",
+      "cost_eur": 25.5,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-27",
+      "producte": "neteja_jardi",
+      "quantitat": 1,
+      "unitat": "servei",
+      "cost_eur": 668.8,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-27",
+      "producte": "transport_residus",
+      "quantitat": 1,
+      "unitat": "servei",
+      "cost_eur": 208.6,
+      "font": "factura"
+    },
+    {
+      "data": "2024-05-27",
+      "producte": "ajust_bossa_hores",
+      "quantitat": 1,
+      "unitat": "servei",
+      "cost_eur": -501.6,
+      "font": "factura"
+    }
+  ],
+  "energia": [
+    {
+      "data": "2024-05-01",
+      "producte": "fibra_internet",
+      "quantitat": 1,
+      "unitat": "mes",
+      "cost_eur": 30.0,
+      "font": "factura"
+    },
+    {
+      "data": "2024-03-01",
+      "producte": "fibra_i_mobil",
+      "quantitat": 1,
+      "unitat": "mes",
+      "cost_eur": 50.0,
+      "font": "factura"
+    }
+  ],
+  "planta_solar": [
+    {
+      "data": "2025-01-01",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 42.56,
+      "inverter_yield_kwh": 42.56,
+      "total_yield_kwh": 71087.22,
+      "export_kwh": 2.62,
+      "import_kwh": 117.53,
+      "consumption_kwh": 157.47,
+      "self_consumption_kwh": 39.94,
+      "self_consumption_rate_pct": 93.844,
+      "peak_power_kw": 9.22,
+      "co2_avoided_t": 0.02,
+      "revenue_eur": 0.31,
+      "specific_energy_kwh_kwp": 1.376
+    },
+    {
+      "data": "2025-01-02",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 48.86,
+      "inverter_yield_kwh": 48.86,
+      "total_yield_kwh": 71136.08,
+      "export_kwh": 3.43,
+      "import_kwh": 114.12,
+      "consumption_kwh": 159.55,
+      "self_consumption_kwh": 45.43,
+      "self_consumption_rate_pct": 92.98,
+      "peak_power_kw": 11.235,
+      "co2_avoided_t": 0.023,
+      "revenue_eur": 0.42,
+      "specific_energy_kwh_kwp": 1.579
+    },
+    {
+      "data": "2025-01-03",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 36.48,
+      "inverter_yield_kwh": 36.48,
+      "total_yield_kwh": 71172.56,
+      "export_kwh": 0.22,
+      "import_kwh": 153.24,
+      "consumption_kwh": 189.5,
+      "self_consumption_kwh": 36.26,
+      "self_consumption_rate_pct": 99.397,
+      "peak_power_kw": 10.22,
+      "co2_avoided_t": 0.017,
+      "revenue_eur": 0.02,
+      "specific_energy_kwh_kwp": 1.179
+    },
+    {
+      "data": "2025-01-04",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 44.18,
+      "inverter_yield_kwh": 44.18,
+      "total_yield_kwh": 71216.74,
+      "export_kwh": 0.43,
+      "import_kwh": 158.01,
+      "consumption_kwh": 201.76,
+      "self_consumption_kwh": 43.75,
+      "self_consumption_rate_pct": 99.027,
+      "peak_power_kw": 11.222,
+      "co2_avoided_t": 0.021,
+      "revenue_eur": 0.05,
+      "specific_energy_kwh_kwp": 1.428
+    },
+    {
+      "data": "2025-01-05",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 41.99,
+      "inverter_yield_kwh": 41.99,
+      "total_yield_kwh": 71258.73,
+      "export_kwh": 0.14,
+      "import_kwh": 157.64,
+      "consumption_kwh": 199.49,
+      "self_consumption_kwh": 41.85,
+      "self_consumption_rate_pct": 99.667,
+      "peak_power_kw": 10.111,
+      "co2_avoided_t": 0.02,
+      "revenue_eur": 0.02,
+      "specific_energy_kwh_kwp": 1.357
+    },
+    {
+      "data": "2025-01-06",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 40.55,
+      "inverter_yield_kwh": 40.55,
+      "total_yield_kwh": 71299.28,
+      "export_kwh": 2.63,
+      "import_kwh": 153.63,
+      "consumption_kwh": 191.55,
+      "self_consumption_kwh": 37.92,
+      "self_consumption_rate_pct": 93.514,
+      "peak_power_kw": 11.526,
+      "co2_avoided_t": 0.019,
+      "revenue_eur": 0.31,
+      "specific_energy_kwh_kwp": 1.311
+    },
+    {
+      "data": "2025-01-07",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 53.26,
+      "inverter_yield_kwh": 53.26,
+      "total_yield_kwh": 71352.54,
+      "export_kwh": 1.9,
+      "import_kwh": 148.83,
+      "consumption_kwh": 200.19,
+      "self_consumption_kwh": 51.36,
+      "self_consumption_rate_pct": 96.433,
+      "peak_power_kw": 10.099,
+      "co2_avoided_t": 0.025,
+      "revenue_eur": 0.23,
+      "specific_energy_kwh_kwp": 1.721
+    },
+    {
+      "data": "2025-01-08",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 47.81,
+      "inverter_yield_kwh": 47.81,
+      "total_yield_kwh": 71400.35,
+      "export_kwh": 0.0,
+      "import_kwh": 419.79,
+      "consumption_kwh": 467.6,
+      "self_consumption_kwh": 47.81,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 11.608,
+      "co2_avoided_t": 0.023,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.545
+    },
+    {
+      "data": "2025-01-09",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 52.03,
+      "inverter_yield_kwh": 52.03,
+      "total_yield_kwh": 71452.38,
+      "export_kwh": 0.0,
+      "import_kwh": 409.75,
+      "consumption_kwh": 461.78,
+      "self_consumption_kwh": 52.03,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 9.792,
+      "co2_avoided_t": 0.025,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.682
+    },
+    {
+      "data": "2025-01-10",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 49.33,
+      "inverter_yield_kwh": 49.33,
+      "total_yield_kwh": 71501.71,
+      "export_kwh": 0.0,
+      "import_kwh": 376.64,
+      "consumption_kwh": 425.97,
+      "self_consumption_kwh": 49.33,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 9.565,
+      "co2_avoided_t": 0.023,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.594
+    },
+    {
+      "data": "2025-01-11",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 40.03,
+      "inverter_yield_kwh": 40.03,
+      "total_yield_kwh": 71541.74,
+      "export_kwh": 1.49,
+      "import_kwh": 162.86,
+      "consumption_kwh": 201.4,
+      "self_consumption_kwh": 38.54,
+      "self_consumption_rate_pct": 96.278,
+      "peak_power_kw": 11.9,
+      "co2_avoided_t": 0.019,
+      "revenue_eur": 0.18,
+      "specific_energy_kwh_kwp": 1.294
+    },
+    {
+      "data": "2025-01-12",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 57.0,
+      "inverter_yield_kwh": 57.0,
+      "total_yield_kwh": 71598.74,
+      "export_kwh": 1.87,
+      "import_kwh": 159.58,
+      "consumption_kwh": 214.71,
+      "self_consumption_kwh": 55.13,
+      "self_consumption_rate_pct": 96.719,
+      "peak_power_kw": 10.562,
+      "co2_avoided_t": 0.027,
+      "revenue_eur": 0.22,
+      "specific_energy_kwh_kwp": 1.842
+    },
+    {
+      "data": "2025-01-13",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 55.89,
+      "inverter_yield_kwh": 55.89,
+      "total_yield_kwh": 71654.63,
+      "export_kwh": 0.0,
+      "import_kwh": 435.11,
+      "consumption_kwh": 491.0,
+      "self_consumption_kwh": 55.89,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 10.462,
+      "co2_avoided_t": 0.027,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.806
+    },
+    {
+      "data": "2025-01-14",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 57.49,
+      "inverter_yield_kwh": 57.49,
+      "total_yield_kwh": 71712.12,
+      "export_kwh": 0.0,
+      "import_kwh": 426.8,
+      "consumption_kwh": 484.29,
+      "self_consumption_kwh": 57.49,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 10.638,
+      "co2_avoided_t": 0.027,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.858
+    },
+    {
+      "data": "2025-01-15",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 55.58,
+      "inverter_yield_kwh": 55.58,
+      "total_yield_kwh": 71767.7,
+      "export_kwh": 0.0,
+      "import_kwh": 424.17,
+      "consumption_kwh": 479.75,
+      "self_consumption_kwh": 55.58,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 10.987,
+      "co2_avoided_t": 0.026,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.796
+    },
+    {
+      "data": "2025-01-16",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 40.94,
+      "inverter_yield_kwh": 40.94,
+      "total_yield_kwh": 71808.64,
+      "export_kwh": 0.0,
+      "import_kwh": 449.86,
+      "consumption_kwh": 490.8,
+      "self_consumption_kwh": 40.94,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 11.539,
+      "co2_avoided_t": 0.019,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.323
+    },
+    {
+      "data": "2025-01-17",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 52.9,
+      "inverter_yield_kwh": 52.9,
+      "total_yield_kwh": 71861.54,
+      "export_kwh": 0.0,
+      "import_kwh": 377.78,
+      "consumption_kwh": 430.68,
+      "self_consumption_kwh": 52.9,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 13.937,
+      "co2_avoided_t": 0.025,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.71
+    },
+    {
+      "data": "2025-01-18",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 56.17,
+      "inverter_yield_kwh": 56.17,
+      "total_yield_kwh": 71917.71,
+      "export_kwh": 3.17,
+      "import_kwh": 145.59,
+      "consumption_kwh": 198.59,
+      "self_consumption_kwh": 53.0,
+      "self_consumption_rate_pct": 94.356,
+      "peak_power_kw": 11.598,
+      "co2_avoided_t": 0.027,
+      "revenue_eur": 0.38,
+      "specific_energy_kwh_kwp": 1.815
+    },
+    {
+      "data": "2025-01-19",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 35.53,
+      "inverter_yield_kwh": 35.53,
+      "total_yield_kwh": 71953.24,
+      "export_kwh": 0.2,
+      "import_kwh": 166.83,
+      "consumption_kwh": 202.16,
+      "self_consumption_kwh": 35.33,
+      "self_consumption_rate_pct": 99.437,
+      "peak_power_kw": 9.928,
+      "co2_avoided_t": 0.017,
+      "revenue_eur": 0.02,
+      "specific_energy_kwh_kwp": 1.148
+    },
+    {
+      "data": "2025-01-20",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 32.0,
+      "inverter_yield_kwh": 32.0,
+      "total_yield_kwh": 71985.24,
+      "export_kwh": 0.0,
+      "import_kwh": 456.39,
+      "consumption_kwh": 488.39,
+      "self_consumption_kwh": 32.0,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 12.032,
+      "co2_avoided_t": 0.015,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 1.034
+    },
+    {
+      "data": "2025-01-21",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 30.24,
+      "inverter_yield_kwh": 30.24,
+      "total_yield_kwh": 72015.48,
+      "export_kwh": 0.0,
+      "import_kwh": 470.1,
+      "consumption_kwh": 500.34,
+      "self_consumption_kwh": 30.24,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 9.842,
+      "co2_avoided_t": 0.014,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 0.977
+    },
+    {
+      "data": "2025-01-22",
+      "capacity_kwp": 30.94,
+      "pv_yield_kwh": 5.87,
+      "inverter_yield_kwh": 5.87,
+      "total_yield_kwh": 72021.35,
+      "export_kwh": 0.0,
+      "import_kwh": 159.68,
+      "consumption_kwh": 165.55,
+      "self_consumption_kwh": 5.87,
+      "self_consumption_rate_pct": 100.0,
+      "peak_power_kw": 6.755,
+      "co2_avoided_t": 0.003,
+      "revenue_eur": 0.0,
+      "specific_energy_kwh_kwp": 0.19
+    }
+  ],
+  "impacte_social": [
+    {
+      "data": "2024-11-15",
+      "grup": "ASIXc1A",
+      "mobils_taula": 3,
+      "alumnat_aula": 20,
+      "percentatge_mobils": 15.0
+    },
+    {
+      "data": "2024-11-21",
+      "grup": "ASIXc1A",
+      "mobils_taula": 7,
+      "alumnat_aula": 19,
+      "percentatge_mobils": 36.84
+    },
+    {
+      "data": "2024-11-22",
+      "grup": "ASIXc1A",
+      "mobils_taula": 5,
+      "alumnat_aula": 21,
+      "percentatge_mobils": 23.81
+    },
+    {
+      "data": "2024-11-28",
+      "grup": "ASIXc1A",
+      "mobils_taula": 6,
+      "alumnat_aula": 19,
+      "percentatge_mobils": 31.58
+    },
+    {
+      "data": "2024-11-29",
+      "grup": "ASIXc1A",
+      "mobils_taula": 5,
+      "alumnat_aula": 22,
+      "percentatge_mobils": 22.73
+    },
+    {
+      "data": "2024-12-12",
+      "grup": "ASIXc1A",
+      "mobils_taula": 3.5,
+      "alumnat_aula": 19,
+      "percentatge_mobils": 18.42
+    },
+    {
+      "data": "2024-12-13",
+      "grup": "ASIXc1A",
+      "mobils_taula": 11,
+      "alumnat_aula": 19,
+      "percentatge_mobils": 57.89
+    },
+    {
+      "data": "2024-12-19",
+      "grup": "ASIXc1A",
+      "mobils_taula": 9.5,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 52.78
+    },
+    {
+      "data": "2025-01-09",
+      "grup": "ASIXc1A",
+      "mobils_taula": 9,
+      "alumnat_aula": 20,
+      "percentatge_mobils": 45.0
+    },
+    {
+      "data": "2025-01-16",
+      "grup": "ASIXc1A",
+      "mobils_taula": 8,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 44.44
+    },
+    {
+      "data": "2025-01-17",
+      "grup": "ASIXc1A",
+      "mobils_taula": 7,
+      "alumnat_aula": 19,
+      "percentatge_mobils": 36.84
+    },
+    {
+      "data": "2024-11-16",
+      "grup": "ASIXc1B",
+      "mobils_taula": 6,
+      "alumnat_aula": 21,
+      "percentatge_mobils": 28.57
+    },
+    {
+      "data": "2024-11-22",
+      "grup": "ASIXc1B",
+      "mobils_taula": 3,
+      "alumnat_aula": 20,
+      "percentatge_mobils": 15.0
+    },
+    {
+      "data": "2024-11-26",
+      "grup": "ASIXc1B",
+      "mobils_taula": 2.5,
+      "alumnat_aula": 20,
+      "percentatge_mobils": 12.5
+    },
+    {
+      "data": "2024-11-29",
+      "grup": "ASIXc1B",
+      "mobils_taula": 4,
+      "alumnat_aula": 21,
+      "percentatge_mobils": 19.05
+    },
+    {
+      "data": "2024-12-03",
+      "grup": "ASIXc1B",
+      "mobils_taula": 1,
+      "alumnat_aula": 21,
+      "percentatge_mobils": 4.76
+    },
+    {
+      "data": "2024-12-10",
+      "grup": "ASIXc1B",
+      "mobils_taula": 3,
+      "alumnat_aula": 17,
+      "percentatge_mobils": 17.65
+    },
+    {
+      "data": "2024-12-13",
+      "grup": "ASIXc1B",
+      "mobils_taula": 6.5,
+      "alumnat_aula": 19,
+      "percentatge_mobils": 34.21
+    },
+    {
+      "data": "2024-12-17",
+      "grup": "ASIXc1B",
+      "mobils_taula": 4,
+      "alumnat_aula": 17,
+      "percentatge_mobils": 23.53
+    },
+    {
+      "data": "2025-01-14",
+      "grup": "ASIXc1B",
+      "mobils_taula": 3,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 16.67
+    },
+    {
+      "data": "2025-01-17",
+      "grup": "ASIXc1B",
+      "mobils_taula": 4,
+      "alumnat_aula": 17,
+      "percentatge_mobils": 23.53
+    },
+    {
+      "data": "2024-11-18",
+      "grup": "ASIXc1C",
+      "mobils_taula": 11,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 61.11
+    },
+    {
+      "data": "2024-11-19",
+      "grup": "ASIXc1C",
+      "mobils_taula": 6,
+      "alumnat_aula": 19,
+      "percentatge_mobils": 31.58
+    },
+    {
+      "data": "2024-11-25",
+      "grup": "ASIXc1C",
+      "mobils_taula": 3.5,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 19.44
+    },
+    {
+      "data": "2024-11-26",
+      "grup": "ASIXc1C",
+      "mobils_taula": 14.5,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 80.56
+    },
+    {
+      "data": "2024-12-02",
+      "grup": "ASIXc1C",
+      "mobils_taula": 8,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 44.44
+    },
+    {
+      "data": "2024-12-03",
+      "grup": "ASIXc1C",
+      "mobils_taula": 6,
+      "alumnat_aula": 16,
+      "percentatge_mobils": 37.5
+    },
+    {
+      "data": "2024-12-09",
+      "grup": "ASIXc1C",
+      "mobils_taula": 3.5,
+      "alumnat_aula": 15,
+      "percentatge_mobils": 23.33
+    },
+    {
+      "data": "2024-12-10",
+      "grup": "ASIXc1C",
+      "mobils_taula": 6,
+      "alumnat_aula": 17,
+      "percentatge_mobils": 35.29
+    },
+    {
+      "data": "2024-12-16",
+      "grup": "ASIXc1C",
+      "mobils_taula": 2,
+      "alumnat_aula": 17,
+      "percentatge_mobils": 11.76
+    },
+    {
+      "data": "2024-12-17",
+      "grup": "ASIXc1C",
+      "mobils_taula": 5,
+      "alumnat_aula": 15,
+      "percentatge_mobils": 33.33
+    },
+    {
+      "data": "2025-01-13",
+      "grup": "ASIXc1C",
+      "mobils_taula": 5,
+      "alumnat_aula": 13,
+      "percentatge_mobils": 38.46
+    },
+    {
+      "data": "2025-01-14",
+      "grup": "ASIXc1C",
+      "mobils_taula": 11,
+      "alumnat_aula": 18,
+      "percentatge_mobils": 61.11
+    },
+    {
+      "data": "2025-01-20",
+      "grup": "ASIXc1C",
+      "mobils_taula": 11,
+      "alumnat_aula": 16,
+      "percentatge_mobils": 68.75
+    }
+  ],
+  "indicadors": [
+    {
+      "nom": "consum_aigua",
+      "descripcio": "Consum horari d'aigua del centre en litres.",
+      "categoria_font": "aigua"
+    },
+    {
+      "nom": "consumibles_oficina",
+      "descripcio": "Consum de paper, marcadors, recanvis i material d'oficina.",
+      "categoria_font": "consumibles_oficina"
+    },
+    {
+      "nom": "neteja_higiene",
+      "descripcio": "Consum de productes i serveis de neteja i higiene.",
+      "categoria_font": "neteja_higiene"
+    },
+    {
+      "nom": "cost_manteniment",
+      "descripcio": "Cost dels serveis i materials de manteniment i reparació.",
+      "categoria_font": "manteniment"
+    },
+    {
+      "nom": "serveis_digitals",
+      "descripcio": "Despesa en serveis digitals i telecomunicacions.",
+      "categoria_font": "energia"
+    },
+    {
+      "nom": "autoconsum_i_consum_electric",
+      "descripcio": "Importació, exportació, consum i autoconsum de la planta solar.",
+      "categoria_font": "planta_solar"
+    },
+    {
+      "nom": "impacte_social_mobils",
+      "descripcio": "Percentatge de mòbils visibles a l'aula per grup i data.",
+      "categoria_font": "impacte_social"
+    }
+  ]
+}
