@@ -1,31 +1,27 @@
 .calc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
 }
 
 .result-card {
+  background: white;
   border: 2px solid var(--ink);
   padding: 1.5rem;
-  background: white;
-}
-
-.result-card h3 {
-  font-family: var(--ff-display);
-  font-size: 1.6rem;
-  border-bottom: 2px solid var(--yellow);
-  margin-bottom: 1rem;
+  box-shadow: 6px 6px 0 var(--ink);
 }
 
 .sub-res {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
   font-family: var(--ff-mono);
   font-size: 0.9rem;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 0.3rem;
 }
 
 .sub-res strong {
   color: var(--blue);
+  font-size: 1.1rem;
 }
